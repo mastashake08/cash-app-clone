@@ -20,3 +20,8 @@ This application is a cash app clone that utilizes the Stripe API to send and re
 - php artisan key:generate
 - php artisan passport:install
 - php artisan migrate
+
+
+## Links
+> Links to packages used
+- https://socialiteproviders.netlify.com/providers/stripe.html
