@@ -27,4 +27,4 @@ This application is a cash app clone that utilizes the Stripe API to send and re
 - https://socialiteproviders.netlify.com/providers/stripe.html
 
 ## Want To Support?
-Tae'lur Alexis [https://twitter.com/taeluralexis] and I did a master class workshop creating this app. You can purchase the master class on my website[http://bit.ly/2GyHaew]. Not only does it provide an in-depth look into our thought process whilst creating this application, you are also supporting two freelance developers which in turn enables us to produce more content :D 
+[Tae'lur Alexis] (https://twitter.com/taeluralexis) and I did a master class workshop creating this app. You can purchase the master class on my [website](http://bit.ly/2GyHaew). Not only does it provide an in-depth look into our thought process whilst creating this application, you are also supporting two freelance developers which in turn enables us to produce more content :D 
