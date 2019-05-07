@@ -4,7 +4,7 @@
 
 
 ![alt text](https://jyroneparker.com/wp-content/uploads/2019/04/laravel_react-masterclass-e1557189388530.png "Logo Title Text 1")
-> Thank you everyone who supported this master class and made this possible. If you are looking for the live stream recording, it can be found here https://youtu.be/i0IJI-cPRqs
+> Thank you everyone who supported this master class and made this possible.
 
 ## What Are We Making?
 
