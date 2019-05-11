@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Resources\UserResource;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,14 +15,14 @@ use App\Models\User;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return new UserResource($request->user());
 });
 
-Route::post('/pay/{id}',function(Request $request,$id){    
+Route::post('/pay/{tag}',function(Request $request,$tag){    
     try {
         // Use Stripe's library to make requests...
         //get user
-    $user = User::findOrFail($id);
+    $user = User::where('tag',$tag)->first();
     //authenticate with user key
     \Stripe\Stripe::setApiKey($user->token);
 
