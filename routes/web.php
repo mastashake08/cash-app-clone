@@ -1,5 +1,5 @@
 <?php
-
+use App\Model\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/login', 'Auth\LoginController@redirectToProvider')->name('login');
+Route::get('/login/stripe/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');

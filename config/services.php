@@ -42,6 +42,9 @@ return [
             'secret' => env('STRIPE_WEBHOOK_SECRET'),
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
+        'client_id' => env('STRIPE_KEY'),
+        'client_secret' => env('STRIPE_SECRET'),
+        'redirect' => env('STRIPE_REDIRECT_URI')
     ],
 
 ];
