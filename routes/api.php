@@ -38,39 +38,39 @@ Route::post('/pay/{id}',function(Request $request,$id){
       } catch(\Stripe\Error\Card $e) {
         
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       } catch (\Stripe\Error\RateLimit $e) {
         // Too many requests made to the API too quickly
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       } catch (\Stripe\Error\InvalidRequest $e) {
         // Invalid parameters were supplied to Stripe's API
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       } catch (\Stripe\Error\Authentication $e) {
         // Authentication with Stripe's API failed
         // (maybe you changed API keys recently)
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       } catch (\Stripe\Error\ApiConnection $e) {
         // Network communication with Stripe failed
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       } catch (\Stripe\Error\Base $e) {
         // Display a very generic error to the user, and maybe send
         // yourself an email
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       } catch (Exception $e) {
         // Something else happened, completely unrelated to 
         return response()->json([
-            'message' => $e->getMessage();
+            'message' => $e->getMessage()
         ]);
       }
 });
