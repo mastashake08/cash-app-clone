@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return new UserResource($request->user());
 });
 
-Route::post('/pay/{tag}',function(Request $request,$tag){    
+Route::post('/pay/{tag}',function(Request $request,$tag){
     try {
         // Use Stripe's library to make requests...
         //get user
@@ -31,13 +31,14 @@ Route::post('/pay/{tag}',function(Request $request,$tag){
         "amount" => $request->amount * 100,
         "currency" => "usd",
         "source" => $request->token, // obtained with Stripe.js
-        "description" => "{$request->amount} from {$request->user()->email}"
+        "description" => "{$request->amount} from {$request->user()->email}",
+        "application_fee" => 50
       ]);
       return response()->json([
           'message' => 'Success'
       ]);
       } catch(\Stripe\Error\Card $e) {
-        
+
         return response()->json([
             'message' => $e->getMessage()
         ]);
@@ -69,9 +70,9 @@ Route::post('/pay/{tag}',function(Request $request,$tag){
             'message' => $e->getMessage()
         ]);
       } catch (Exception $e) {
-        // Something else happened, completely unrelated to 
+        // Something else happened, completely unrelated to
         return response()->json([
             'message' => $e->getMessage()
         ]);
       }
-});
+})->middleware('auth:api');
