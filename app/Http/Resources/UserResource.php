@@ -21,6 +21,6 @@ class UserResource extends JsonResource
             'avatar' => $this->avatar,
             'tag' => $this->tag,
             'balance' => \Stripe\Balance::retrieve()
-        ]
+        ];
     }
 }
