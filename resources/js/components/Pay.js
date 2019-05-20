@@ -23,6 +23,4 @@ export default class Pay extends Component {
     }
 }
 
-if (document.getElementById('example')) {
-    ReactDOM.render(<Pay />, document.getElementById('example'));
-}
+    ReactDOM.render(<Pay />, document.getElementById('app'));
