@@ -30,7 +30,7 @@ export default class Balance extends Component {
                             <div className="card-header">My Profile</div>
 
                             <div className="card-body">
-                                {this.state.user.data.balance.available[0].amount}
+                                
                             </div>
                         </div>
                     </div>

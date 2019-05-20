@@ -61682,7 +61682,7 @@ function (_Component) {
         className: "card-header"
       }, "My Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, this.state.user.data.balance.available[0].amount)))));
+      })))));
     }
   }]);
 
