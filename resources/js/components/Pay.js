@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import ReactDOM from 'react-dom';
 
 export default class Pay extends Component {
+
+    componentDidMount() {
+        axios.get('/api/user').then(data => {
+            console.log(data.data);
+        })
+    }
+
     render() {
         return (
             <div className="container">
@@ -22,5 +30,6 @@ export default class Pay extends Component {
         );
     }
 }
+
 
     ReactDOM.render(<Pay />, document.getElementById('app'));
