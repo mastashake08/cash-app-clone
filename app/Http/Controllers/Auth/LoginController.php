@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Socialite;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 class LoginController extends Controller
 {
     /**
@@ -34,7 +35,8 @@ class LoginController extends Controller
                 'stripe_id' => $stripeUser->getId(),
                 'email' => $stripeUser->getEmail(),
                 'name' => $stripeUser->getNickname(),
-            ]);   
+                'tag' => Str::slug($stripeUser->getNickname(), '-')
+            ]);
         }
         Auth::login($user);
         return redirect('/home');
