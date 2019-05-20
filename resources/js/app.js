@@ -13,3 +13,5 @@ require('./bootstrap');
  */
 
 require('./components/Pay');
+
+require('./components/Balance');
