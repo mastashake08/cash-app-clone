@@ -61649,24 +61649,23 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Balance).call(this));
     _this.state = {
+      isLoading: true,
       user: {}
     };
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user').then(function (data) {
+      _this.setState({
+        user: data.data.data,
+        isLoading: false
+      });
+
+      console.log('Balance:', _this.state.user.balance.available[0].amount / 100);
+    });
     return _this;
   }
 
   _createClass(Balance, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user').then(function (data) {
-        _this2.setState({
-          user: data.data
-        });
-
-        console.log(_this2.state.user);
-      });
-    }
+    value: function componentDidMount() {}
   }, {
     key: "render",
     value: function render() {
@@ -61682,7 +61681,7 @@ function (_Component) {
         className: "card-header"
       }, "My Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      })))));
+      }, !this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Tag: ", this.state.user.tag), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Available: $", this.state.user.balance.available[0].amount / 100), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pending: $", this.state.user.balance.pending[0].amount / 100), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Loading"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)))))));
     }
   }]);
 
@@ -61800,8 +61799,8 @@ react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/cash-app-clone-master/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/cash-app-clone-master/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/Programs/cash-app-clone/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/Programs/cash-app-clone/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

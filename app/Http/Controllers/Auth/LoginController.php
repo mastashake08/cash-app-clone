@@ -6,8 +6,10 @@ use Socialite;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
+   use AuthenticatesUsers;
     /**
      * Redirect the user to the GitHub authentication page.
      *
@@ -29,6 +31,8 @@ class LoginController extends Controller
         $accessTokenResponseBody = $stripeUser->accessTokenResponseBody;
         //check if user is already in system
         $user = User::where('stripe_id',$stripeUser->getId())->first();
+        $user->tag = Str::slug($stripeUser->getNickname(), '-');
+        $user->save();
         if($user === null){
            $user = User::Create([
                 'token' => $stripeUser->token,
