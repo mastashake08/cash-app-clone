@@ -44,7 +44,7 @@ export default class Balance extends Component {
                               :
                               <div>
 
-                                <p>Loading</p>
+                                <p>Login to see your balance and tag.</p>
                                 <hr />
                               </div>
                           }
