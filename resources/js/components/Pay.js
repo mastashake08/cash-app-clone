@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import Balance from './Balance';
 
 export default class Pay extends Component {
   constructor() {
