@@ -1,0 +1,92 @@
+{"dir" : "ltr",
+    "lang" : "en",
+    "name" : "Cash App Clone",
+    "scope" : "/",
+    "display" : "browser",
+    "start_url" : "https://cashappclone.jyroneparker.com/",
+    "short_name" : "Cash App Clone",
+    "theme_color" : "transparent",
+    "description" : "",
+    "orientation" : "any",
+    "background_color" : "transparent",
+    "related_applications" : "",
+    "prefer_related_applications" : "false",
+    "generated" : "true",
+    "icons" : [
+        {
+            "src": "/img/icon44x44.png",
+            "sizes": "44x44"
+        },
+        {
+            "src": "/img/icon48x48.png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/img/icon1240x600.png",
+            "sizes": "1240x600"
+        },
+        {
+            "src": "/img/icon300x300.png",
+            "sizes": "300x300"
+        },
+        {
+            "src": "/img/icon150x150.png",
+            "sizes": "150x150"
+        },
+        {
+            "src": "/img/icon88x88.png",
+            "sizes": "88x88"
+        },
+        {
+            "src": "/img/icon24x24.png",
+            "sizes": "24x24"
+        },
+        {
+            "src": "/img/icon50x50.png",
+            "sizes": "50x50"
+        },
+        {
+            "src": "/img/icon620x300.png",
+            "sizes": "620x300"
+        },
+        {
+            "src": "/img/icon192x192.png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/img/icon144x144.png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/img/icon96x96.png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/img/icon72x72.png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/img/icon36x36.png",
+            "sizes": "36x36"
+        },
+        {
+            "src": "/img/icon1024x1024.png",
+            "sizes": "1024x1024"
+        },
+        {
+            "src": "/img/icon180x180.png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/img/icon152x152.png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/img/icon120x120.png",
+            "sizes": "120x120"
+        },
+        {
+            "src": "/img/icon76x76.png",
+            "sizes": "76x76"
+        }
+    ]}
