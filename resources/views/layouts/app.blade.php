@@ -19,28 +19,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
-    <script>
-    // This is the "Offline page" service worker
-
-    // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
-
-    // Check compatibility for the browser we're running this in
-    if ("serviceWorker" in navigator) {
-    if (navigator.serviceWorker.controller) {
-      console.log("[PWA Builder] active service worker found, no need to register");
-    } else {
-      // Register the service workers
-      navigator.serviceWorker
-        .register("sw.js", {
-          scope: "./"
-        })
-        .then(function (reg) {
-          console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-        });
-    }
-    }
-
-    </script>
 </head>
 <body>
     <div id="app">
@@ -98,5 +76,28 @@
             @yield('content')
         </main>
     </div>
+    <script>
+    // This is the "Offline page" service worker
+
+    // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+    // Check compatibility for the browser we're running this in
+    if ("serviceWorker" in navigator) {
+    if (navigator.serviceWorker.controller) {
+      console.log("[PWA Builder] active service worker found, no need to register");
+    } else {
+      // Register the service workers
+      navigator.serviceWorker
+        .register("sw.js", {
+          scope: "./"
+        })
+        .then(function (reg) {
+          console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+    }
+
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
 </body>
 </html>

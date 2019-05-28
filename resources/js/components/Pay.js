@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-
+import {StripeProvider,injectStripe, CardElement} from 'react-stripe-elements';
 export default class Pay extends Component {
   constructor() {
       super();
@@ -46,7 +46,7 @@ install() {
 }
     render() {
         return (
-            <div>
+            <StripeProvider apiKey="pk_live_REpu4rz1eQsuOgZuxukmRxbX">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
@@ -56,6 +56,10 @@ install() {
                             <div className="card-body">
                                 <input placeholder="Enter Tag" />
                                 <input placeholder="Enter Amount" />
+                                <label>
+                                 Card details
+                                 <CardElement style={{base: {fontSize: '18px'}}} />
+                               </label>
                                 <button>Pay</button>
                             </div>
                         </div>
@@ -67,7 +71,7 @@ install() {
                 </button>
             </div>
 
-            </div>
+            </StripeProvider>
         );
     }
 }
