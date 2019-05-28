@@ -36,4 +36,4 @@ export default class Pay extends Component {
 }
 
 
-    ReactDOM.render(<Pay />, document.getElementById('cashapp'));
+    

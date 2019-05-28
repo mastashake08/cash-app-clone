@@ -1,4 +1,5 @@
-{"dir" : "ltr",
+{
+    "dir" : "ltr",
     "lang" : "en",
     "name" : "Cash App Clone",
     "scope" : "/",
@@ -8,7 +9,7 @@
     "theme_color" : "transparent",
     "description" : "Cash App clone created by @taeluralexis and @mastashake08",
     "orientation" : "any",
-    "background_color" : "transparent",
+    "background_color" : "#FFFFFF",
     "related_applications" : "",
     "prefer_related_applications" : "false",
     "generated" : "true",
