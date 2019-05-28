@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import {StripeProvider,injectStripe, CardElement} from 'react-stripe-elements';
+import PaymentRequestForm from './PaymentRequestForm';
 export default class Pay extends Component {
   constructor() {
       super();
@@ -56,10 +56,7 @@ install() {
                             <div className="card-body">
                                 <input placeholder="Enter Tag" />
                                 <input placeholder="Enter Amount" />
-                                <label>
-                                 Card details
-                                 <CardElement style={{base: {fontSize: '18px'}}} />
-                               </label>
+                                <PaymentRequestForm />
                                 <button>Pay</button>
                             </div>
                         </div>
