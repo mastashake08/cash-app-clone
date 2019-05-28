@@ -8,7 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <Pay></Pay>
+                    
                 </div>
             </div>
         </div>
