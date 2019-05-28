@@ -31,7 +31,7 @@
     } else {
       // Register the service workers
       navigator.serviceWorker
-        .register("/js/sw.js", {
+        .register("sw.js", {
           scope: "./"
         })
         .then(function (reg) {
