@@ -46,7 +46,6 @@ install() {
 }
     render() {
         return (
-            <StripeProvider apiKey="pk_live_REpu4rz1eQsuOgZuxukmRxbX">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
@@ -68,7 +67,6 @@ install() {
                 </button>
             </div>
 
-            </StripeProvider>
         );
     }
 }
