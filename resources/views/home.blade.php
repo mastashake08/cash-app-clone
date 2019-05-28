@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<Balance />
-<br/>
-<Pay />
+<div id="balance"></div>
+<div id="pay"></div>
 @endsection

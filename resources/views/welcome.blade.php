@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<Pay />
+<div id="pay"></div>
 @endsection

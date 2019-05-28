@@ -56,3 +56,4 @@ export default class Balance extends Component {
         );
     }
 }
+ReactDOM.render(<Balance />, document.getElementById('balance'));
