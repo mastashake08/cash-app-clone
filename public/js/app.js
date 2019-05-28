@@ -61681,7 +61681,7 @@ function (_Component) {
         className: "card-header"
       }, "My Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, !this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Tag: ", this.state.user.tag), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Available: $", this.state.user.balance.available[0].amount / 100), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pending: $", this.state.user.balance.pending[0].amount / 100), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Loading"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)))))));
+      }, !this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Tag: ", this.state.user.tag), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Available: $", this.state.user.balance.available[0].amount / 100), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pending: $", this.state.user.balance.pending[0].amount / 100), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Login to see your balance and tag."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)))))));
     }
   }]);
 
@@ -61738,22 +61738,53 @@ function (_Component) {
   _inherits(Pay, _Component);
 
   function Pay() {
+    var _this;
+
     _classCallCheck(this, Pay);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Pay).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Pay).call(this));
+    _this.state = {
+      deferredPrompt: null
+    };
+    return _this;
   }
 
   _createClass(Pay, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user').then(function (data) {
         console.log(data.data);
       });
+      window.addEventListener('beforeinstallprompt', function (e) {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault(); // Stash the event so it can be triggered later.
+
+        _this2.state.deferredPrompt = e;
+      });
+    }
+  }, {
+    key: "install",
+    value: function install() {
+      if (this.state.deferredPrompt) {
+        this.state.deferredPrompt.prompt();
+        console.log(deferredPrompt);
+        this.state.deferredPrompt.userChoice.then(function (choiceResult) {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Your PWA has been installed');
+          } else {
+            console.log('User chose to not install your PWA');
+          }
+
+          this.state.deferredPrompt = null;
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Balance__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Balance__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
@@ -61769,7 +61800,9 @@ function (_Component) {
         placeholder: "Enter Tag"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Enter Amount"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Pay")))))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Pay")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onclick: this.install
+      }, "Install this app!"));
     }
   }]);
 
@@ -61777,7 +61810,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pay, null), document.getElementById('cashapp'));
 
 /***/ }),
 
