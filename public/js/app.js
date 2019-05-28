@@ -61749,7 +61749,8 @@ function (_Component) {
     };
     _this.install = _this.install.bind(_assertThisInitialized(_this));
     window.addEventListener('beforeinstallprompt', function (e) {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      console.log(e); // Prevent Chrome 67 and earlier from automatically showing the prompt
+
       e.preventDefault(); // Stash the event so it can be triggered later.
 
       _this.state.deferredPrompt = e;
@@ -61800,9 +61801,9 @@ function (_Component) {
         placeholder: "Enter Tag"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         placeholder: "Enter Amount"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Pay")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Pay"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.install
-      }, "Install this app!"));
+      }, "Install this app!")));
     }
   }]);
 

@@ -11,6 +11,7 @@ export default class Pay extends Component {
       };
       this.install = this.install.bind(this);
       window.addEventListener('beforeinstallprompt', (e) => {
+        console.log(e)
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
         // Stash the event so it can be triggered later.
@@ -25,6 +26,7 @@ export default class Pay extends Component {
 
 
 install() {
+
   if (this.state.deferredPrompt) {
     this.state.deferredPrompt.prompt();
     console.log(deferredPrompt)
@@ -60,11 +62,12 @@ install() {
                         </div>
                     </div>
                 </div>
+                <br/>
+                <button onClick={this.install}>
+                  Install this app!
+                </button>
             </div>
-            <br/>
-            <button onClick={this.install}>
-              Install this app!
-            </button>
+
             </div>
         );
     }
