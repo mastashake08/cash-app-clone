@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import PaymentRequestForm from './PaymentRequestForm';
+import {StripeProvider, Elements} from 'react-stripe-elements';
 export default class Pay extends Component {
   constructor() {
       super();
@@ -46,6 +46,7 @@ install() {
 }
     render() {
         return (
+          <StripeProvider apiKey="pk_live_REpu4rz1eQsuOgZuxukmRxbX">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
@@ -53,10 +54,11 @@ install() {
                             <div className="card-header">Send A Payment</div>
 
                             <div className="card-body">
+                                <Elements>
                                 <input placeholder="Enter Tag" />
                                 <input placeholder="Enter Amount" />
-                                <PaymentRequestForm />
                                 <button>Pay</button>
+                                </Elements>
                             </div>
                         </div>
                     </div>
@@ -66,6 +68,7 @@ install() {
                   Install this app!
                 </button>
             </div>
+            </StripeProvider>
 
         );
     }
