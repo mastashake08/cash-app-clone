@@ -9,19 +9,17 @@ export default class Pay extends Component {
       this.state = {
           deferredPrompt:null
       };
+      window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        this.state.deferredPrompt = e;
+      });
   }
     componentDidMount() {
         axios.get('/api/user').then(data => {
             console.log(data.data);
         })
-
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      this.state.deferredPrompt = e;
-    });
     }
 
 

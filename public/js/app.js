@@ -61746,22 +61746,20 @@ function (_Component) {
     _this.state = {
       deferredPrompt: null
     };
+    window.addEventListener('beforeinstallprompt', function (e) {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault(); // Stash the event so it can be triggered later.
+
+      _this.state.deferredPrompt = e;
+    });
     return _this;
   }
 
   _createClass(Pay, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/user').then(function (data) {
         console.log(data.data);
-      });
-      window.addEventListener('beforeinstallprompt', function (e) {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault(); // Stash the event so it can be triggered later.
-
-        _this2.state.deferredPrompt = e;
       });
     }
   }, {
