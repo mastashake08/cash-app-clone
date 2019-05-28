@@ -6,16 +6,6 @@ import Balance from './Balance';
 export default class Pay extends Component {
   constructor() {
       super();
-      this.state = {
-          deferredPrompt:null
-      };
-      this.install = this.install.bind(this);
-      window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        this.state.deferredPrompt = e;
-      });
   }
     componentDidMount() {
         axios.get('/api/user').then(data => {
@@ -24,25 +14,6 @@ export default class Pay extends Component {
     }
 
 
-install() {
-  if (this.state.deferredPrompt) {
-    this.state.deferredPrompt.prompt();
-    console.log(deferredPrompt)
-    this.state.deferredPrompt.userChoice.then(function(choiceResult){
-
-      if (choiceResult.outcome === 'accepted') {
-      console.log('Your PWA has been installed');
-    } else {
-      console.log('User chose to not install your PWA');
-    }
-
-    this.state.deferredPrompt = null;
-
-    });
-
-
-  }
-}
     render() {
         return (
             <div>
@@ -61,10 +32,6 @@ install() {
                     </div>
                 </div>
             </div>
-            <br/>
-            <button onClick={this.install}>
-              Install this app!
-            </button>
             </div>
         );
     }
